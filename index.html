@@ -2,7 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
   <title>Läut Premium Beer – Chopp Premium na sua Festa</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -690,6 +693,44 @@
     footer .contact-info a { color: #aaa; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 7px; }
     footer .contact-info a:hover { color: var(--gold-light); }
     footer .copy { color: #555; font-size: 0.75rem; margin-top: 20px; }
+
+    /* ── iOS / SAFARI FIXES ── */
+    input, button, select, textarea {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 10px;
+    }
+    .frete-input {
+      font-size: 16px !important; /* evita zoom automático no iOS */
+      -webkit-appearance: none;
+      -webkit-text-fill-color: #fff;
+    }
+    .frete-input::placeholder {
+      -webkit-text-fill-color: #666;
+      opacity: 1;
+    }
+    .quiz-slider {
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+    .quiz-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 26px;
+      height: 26px; /* um pouco maior para toque no iOS */
+      border-radius: 50%;
+      background: var(--gold-light);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(200,146,42,0.5);
+    }
+    .btn-gold, .whatsapp-btn, .btn-outline-light-custom, .quiz-opt {
+      -webkit-appearance: none;
+      cursor: pointer;
+      touch-action: manipulation; /* remove delay de 300ms no iOS */
+    }
+    * {
+      -webkit-tap-highlight-color: transparent; /* remove flash azul ao tocar */
+    }
 
     /* ── RESPONSIVE ── */
     @media (min-width: 576px) {
